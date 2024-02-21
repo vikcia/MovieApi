@@ -1,0 +1,16 @@
+version: '3.4'
+
+services:
+  movieapihometask:
+    image: ${DOCKER_REGISTRY-}movieapihometask
+    build:
+      context: .
+      dockerfile: MovieApiHomeTask/Dockerfile
+    ports:
+      - "8080:8080"
+    networks:
+      - my_shared_network
+
+networks:
+  my_shared_network:
+    external: true
